@@ -16,8 +16,3 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push 001044962630.dkr.ecr.us-east-2.amazonaws.com/dotcorereactappsample:latest
-      - printf '[{"imageUri": "%s"}]' 001044962630.dkr.ecr.us-east-2.amazonaws.com/dotcorereactappsample:latest > imagedefinitions.json
-      - cat imagedefinitions.json
-
-artifacts:
-  files: imagedefinitions.json
