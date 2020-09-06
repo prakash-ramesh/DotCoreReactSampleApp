@@ -9,14 +9,14 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...          
-      - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
-      - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG      
+      - docker build -t dotcorereactappsample:latest .
+      - docker tag dotcorereactappsample:latest 001044962630.dkr.ecr.us-east-2.amazonaws.com/dotcorereactappsample:latest      
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
-      - printf '[{"imageUri": "%s"}]' $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG > imagedefinitions.json
+      - docker push 001044962630.dkr.ecr.us-east-2.amazonaws.com/dotcorereactappsample:latest
+      - printf '[{"imageUri": "%s"}]' 001044962630.dkr.ecr.us-east-2.amazonaws.com/dotcorereactappsample:latest > imagedefinitions.json
       - cat imagedefinitions.json
 
 artifacts:
