@@ -17,8 +17,4 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push $REPOSITORY_URI:$IMAGE_TAG
-      - printf '{"name":"DotCoreSampleAppContainer", "ImageURI":"%s"}' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
-
-artifacts:
-  files:
-    - imagedefinitions.json
+      - printf '[{"name":"DotCoreSampleAppContainer", "imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
