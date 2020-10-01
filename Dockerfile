@@ -1,7 +1,5 @@
+FROM node:latest
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
-
-RUN curl --silent --location https://deb.nodesource.com/setup_10.x | bash -
-RUN apt-get install --yes nodejs
 
 WORKDIR /src
 COPY . .
